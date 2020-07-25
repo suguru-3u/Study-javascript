@@ -132,13 +132,103 @@
 //   console.log('処理は完了いたしました。')
 // }
 
-// ３章スタート
-let a = new Date();
-console.log(a.getFullYear());
+// // ３章スタート
+// let a = new Date();
+// console.log(a.getFullYear());
+//
+// let b = new Date(2020,4,5);
+// let c = new Date(2019,4,5);
+// let d = (b.getTime() - c.getTime());
+// console.log(d);
+//
+// // 4章スタート
+// function getTriangle(base,height){
+//   return base * height / 2 ;
+// }
+//
+// console.log(`三角形の面積は${getTriangle(5,2)}です。`);
 
-let b = new Date(2020,4,5);
-let c = new Date(2019,4,5);
-let d = (b.getTime() - c.getTime());
-console.log(d);
+// let getTriangle = Function('base','height','return base * height / 2 ;');
+// console.log(`三角形の面積は${getTriangle(5,2)}です。`);
 
-// 4章スタート
+// 関数リテラル
+// let getTriangle = function(base,height){
+//   return base * height / 2 ;
+// }
+//
+// console.log(`三角形の面積は${getTriangle(5,2)}です。`);
+
+// アロー関数
+// let getTriangle = (base,height) => {
+//   return base * height / 2 ;
+// };
+//
+// console.log(`三角形の面積は${getTriangle(5,2)}です。`);
+// let getTriangle = (base,height) =>  base * height / 2 ;
+//
+// console.log(`三角形の面積は${getTriangle(5,2)}です。`);
+//
+// let getCircle = radius => radius * radius * Math.PI;
+// console.log(getCircle(3));
+//
+// let show = () => console.log('こんにちわ');
+
+// function showmessage(a){
+//   if(arguments.length !== 1){
+//     throw new Error('引数の数が間違っています:' + arguments.length);
+//   }
+//   console.log(a)
+// }
+//
+// try{
+//   showmessage('山田','鈴木');
+// }catch(e){
+//   window.alert(e.message);
+// }
+// function sum(){
+//   let result = 0;
+//   for(let i = 0, len = arguments.length; i < len; i++){
+//     let tmp = arguments[i];
+//     if(typeof tmp !== 'number'){
+//       throw new Error('引数が数値ではありません:' + tmp);
+//     }
+//     result += tmp;
+//   }
+//   return result;
+// }
+//
+// try{
+//   console.log(sum(1,2,3,4,'1'));
+// }catch(e){
+//   console.log(e.message);
+// }
+// function getMaxMin(...nums){
+//   return [Math.max(...nums),Math.min(...nums)];
+// }
+// let [max,min] = getMaxMin(10,20,30,50);
+// console.log(max);
+// console.log(min);
+// function a(date,f){
+//   for(let key in date){
+//     f(date[key],key);
+//   }
+// }
+// let sum = 0;
+// function b(value,key){
+//   sum += value;
+// }
+// let c = [1,2,3,4];
+// a(c,b);
+// console.log(sum);
+function a(date,f){
+  for(let key in date){
+    f(date[key],key);
+  }
+}
+let c = [1,2,3,4];
+a(
+  c,
+  function(value,key){
+    console.log(key + ':' + value);
+  }
+);
