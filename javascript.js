@@ -261,46 +261,105 @@
 // let a = new Dog();
 // a.walk();
 // a.bark();
-function Triangle(){
-  var _base;
-  var _height;
+// function Triangle(){
+//   var _base;
+//   var _height;
+//
+//   Object.defineProperty(
+//     this,
+//     'base',
+//     {
+//       get:function(){
+//         return _base;
+//       },
+//       set:function(base){
+//         if(typeof base === 'number' && base > 0){
+//           _base = base;
+//         }
+//       }
+//     }
+//   );
+//   Object.defineProperty(
+//     this,
+//     'height',
+//     {
+//       get:function(){
+//         return _height;
+//       },
+//       set:function(height){
+//         if(typeof height === 'number' && height > 0){
+//           _height = height ;
+//         }
+//       }
+//     }
+//   );
+// };
+//
+// Triangle.prototype.getArea = function(){
+//   return this.base * this.height /2 ;
+// };
+//
+// var t = new Triangle();
+// t.base = 10;
+// t.height = 2;
+// console.log(t.base)
+// console.log(t.getArea(10,2));
+let current = new Date;
+let result = document.getElementById('result');
+result.textContent = current.toLocaleString();
 
-  Object.defineProperty(
-    this,
-    'base',
-    {
-      get:function(){
-        return _base;
-      },
-      set:function(base){
-        if(typeof base === 'number' && base > 0){
-          _base = base;
-        }
-      }
-    }
-  );
-  Object.defineProperty(
-    this,
-    'height',
-    {
-      get:function(){
-        return _height;
-      },
-      set:function(height){
-        if(typeof height === 'number' && height > 0){
-          _height = height ;
-        }
-      }
-    }
-  );
+アロー関数
+let getTriangle = (base,height) => {
+  return base * height / 2 ;
 };
 
-Triangle.prototype.getArea = function(){
-  return this.base * this.height /2 ;
-};
+console.log(`三角形の面積は${getTriangle(5,2)}です。`);
+let getTriangle = (base,height) =>  base * height / 2 ;
 
-var t = new Triangle();
-t.base = 10;
-t.height = 2;
-console.log(t.base)
-console.log(t.getArea(10,2));
+console.log(`三角形の面積は${getTriangle(5,2)}です。`);
+
+let getCircle = radius => radius * radius * Math.PI;
+console.log(getCircle(3));
+
+let show = () => console.log('こんにちわ');
+
+function showmessage(a){
+  if(arguments.length !== 1){
+    throw new Error('引数の数が間違っています:' + arguments.length);
+  }
+  console.log(a)
+}
+
+try{
+  showmessage('山田','鈴木');
+}catch(e){
+  window.alert(e.message);
+}
+function sum(){
+  let result = 0;
+  for(let i = 0, len = arguments.length; i < len; i++){
+    let tmp = arguments[i];
+    if(typeof tmp !== 'number'){
+      throw new Error('引数が数値ではありません:' + tmp);
+    }
+    result += tmp;
+  }
+  return result;
+}
+
+try{
+  console.log(sum(1,2,3,4,'1'));
+}catch(e){
+  console.log(e.message);
+}
+function getMaxMin(...nums){
+  return [Math.max(...nums),Math.min(...nums)];
+}
+let [max,min] = getMaxMin(10,20,30,50);
+console.log(max);
+console.log(min);
+function a(date,f){
+  for(let key in date){
+    f(date[key],key);
+  }
+}
