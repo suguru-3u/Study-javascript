@@ -375,10 +375,20 @@
 //   },false);
 // }, false);
 document.addEventListener('DOMContentLoaded',function(){
+  let getfavoritefood = function(name){
+  let rusult = '';
+  let foods = document.getElementsByName(name);
+    for(i = 0, len = foods.length; i < len; i++){
+      let food = foods.item(i);
+      if(food.checked){
+        rusult = food.value;
+        break;
+      }
+    }
+    return rusult;
+  };
+
   document.getElementById('btn').addEventListener('click',function(){
-    var name = document.getElementById('name');
-    console.log(name.value);
-    var result = document.getElementById('result');
-    result.innerHTML = 'こんにちわ' + name.value;
+    window.alert(getfavoritefood('food'));
   },false);
 },false);
