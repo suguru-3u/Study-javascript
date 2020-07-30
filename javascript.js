@@ -261,46 +261,185 @@
 // let a = new Dog();
 // a.walk();
 // a.bark();
-function Triangle(){
-  var _base;
-  var _height;
-
-  Object.defineProperty(
-    this,
-    'base',
-    {
-      get:function(){
-        return _base;
-      },
-      set:function(base){
-        if(typeof base === 'number' && base > 0){
-          _base = base;
-        }
-      }
-    }
-  );
-  Object.defineProperty(
-    this,
-    'height',
-    {
-      get:function(){
-        return _height;
-      },
-      set:function(height){
-        if(typeof height === 'number' && height > 0){
-          _height = height ;
-        }
-      }
-    }
-  );
-};
-
-Triangle.prototype.getArea = function(){
-  return this.base * this.height /2 ;
-};
-
-var t = new Triangle();
-t.base = 10;
-t.height = 2;
-console.log(t.base)
-console.log(t.getArea(10,2));
+// function Triangle(){
+//   var _base;
+//   var _height;
+//
+//   Object.defineProperty(
+//     this,
+//     'base',
+//     {
+//       get:function(){
+//         return _base;
+//       },
+//       set:function(base){
+//         if(typeof base === 'number' && base > 0){
+//           _base = base;
+//         }
+//       }
+//     }
+//   );
+//   Object.defineProperty(
+//     this,
+//     'height',
+//     {
+//       get:function(){
+//         return _height;
+//       },
+//       set:function(height){
+//         if(typeof height === 'number' && height > 0){
+//           _height = height ;
+//         }
+//       }
+//     }
+//   );
+// };
+//
+// Triangle.prototype.getArea = function(){
+//   return this.base * this.height /2 ;
+// };
+//
+// var t = new Triangle();
+// t.base = 10;
+// t.height = 2;
+// console.log(t.base)
+// console.log(t.getArea(10,2));
+// let current = new Date;
+// let result = document.getElementById('result');
+// result.textContent = current.toLocaleString();
+//
+// アロー関数
+// let getTriangle = (base,height) => {
+//   return base * height / 2 ;
+// };
+//
+// console.log(`三角形の面積は${getTriangle(5,2)}です。`);
+// let getTriangle = (base,height) =>  base * height / 2 ;
+//
+// console.log(`三角形の面積は${getTriangle(5,2)}です。`);
+//
+// let getCircle = radius => radius * radius * Math.PI;
+// console.log(getCircle(3));
+//
+// let show = () => console.log('こんにちわ');
+//
+// function showmessage(a){
+//   if(arguments.length !== 1){
+//     throw new Error('引数の数が間違っています:' + arguments.length);
+//   }
+//   console.log(a)
+// }
+//
+// try{
+//   showmessage('山田','鈴木');
+// }catch(e){
+//   window.alert(e.message);
+// }
+// function sum(){
+//   let result = 0;
+//   for(let i = 0, len = arguments.length; i < len; i++){
+//     let tmp = arguments[i];
+//     if(typeof tmp !== 'number'){
+//       throw new Error('引数が数値ではありません:' + tmp);
+//     }
+//     result += tmp;
+//   }
+//   return result;
+// }
+//
+// try{
+//   console.log(sum(1,2,3,4,'1'));
+// }catch(e){
+//   console.log(e.message);
+// }
+// function getMaxMin(...nums){
+//   return [Math.max(...nums),Math.min(...nums)];
+// }
+// let [max,min] = getMaxMin(10,20,30,50);
+// console.log(max);
+// console.log(min);
+// function a(date,f){
+//   for(let key in date){
+//     f(date[key],key);
+//   }
+// }
+// function btn_click(){
+//   window.alert('ボタンがクリックされました!');
+// }
+// document.getElementById('btn').onclick = function(){
+//   window.alert('ボタンがクリックされました!');
+// };
+// document.addEventListener('DOMContentLoaded',function(){
+//   document.getElementById('btn').addEventListener('click',function(){
+//     window.alert('ボタンがクリックされました!');
+//   },false);
+// }, false);
+// document.addEventListener('DOMContentLoaded',function(){
+//   let getfavoritefood = function(name){
+//   let rusult = '';
+//   let foods = document.getElementsByName(name);
+//     for(i = 0, len = foods.length; i < len; i++){
+//       let food = foods.item(i);
+//       if(food.checked){
+//         rusult = food.value;
+//         break;
+//       }
+//     }
+//     return rusult;
+//   };
+//
+//   document.getElementById('btn').addEventListener('click',function(){
+//     window.alert(getfavoritefood('food'));
+//   },false);
+// },false);
+// window.addEventListener('DOMContentLoaded',function(){
+//   document.getElementById('file').addEventListener('change',function(e){
+//     let inputs = document.getElementById('file').files;
+//     for(let i = 0,len = inputs.length; i < len; i++){
+//       let value = inputs[i];
+//       console.log(value.name);
+//       console.log(value.type);
+//       console.log(value.lastModifiedDate);
+//     }
+//   },true);
+// });
+// window.addEventListener('DOMContentLoaded',function(){
+//   document.getElementById('file').addEventListener('change',function(e){
+//     let inputs = document.getElementById('file').files[0];
+//       let value = new FileReader;
+//       value.addEventListener('load',function(){
+//         document.getElementById('result').textContent = value.result
+//       },true);
+//       value.readAsText(inputs,'UTF-8');
+//   },true);
+// });
+// document.addEventListener('DOMContentLoaded',function(){
+//   document.getElementById('btn').addEventListener('click',function(){
+//
+//     let name = document.getElementById('name');
+//     let url = document.getElementById('url');
+//
+//     let anchor = document.createElement('a');
+//     anchor.href = url.value;
+//     console.log(anchor.href);
+//
+//     let text = document.createTextNode(name.value);
+//     anchor.appendChild(text);
+//     console.log(anchor);
+//
+//     let br = document.createElement('br');
+//     let list = document.getElementById('list');
+//
+//     list.appendChild(anchor);
+//     list.appendChild(br);
+//   },false);
+// },false);
+document.addEventListener('DOMContentLoaded',function(){
+  let elem = document.getElementById('elem');
+  elem.addEventListener('mouseover',function(){
+    this.style.backgroundColor = 'Yellow';
+  },false);
+  elem.addEventListener('mouseout',function(){
+    this.style.backgroundColor = 'red';
+  },false);
+});
