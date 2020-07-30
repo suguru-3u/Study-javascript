@@ -413,24 +413,33 @@
 //       value.readAsText(inputs,'UTF-8');
 //   },true);
 // });
+// document.addEventListener('DOMContentLoaded',function(){
+//   document.getElementById('btn').addEventListener('click',function(){
+//
+//     let name = document.getElementById('name');
+//     let url = document.getElementById('url');
+//
+//     let anchor = document.createElement('a');
+//     anchor.href = url.value;
+//     console.log(anchor.href);
+//
+//     let text = document.createTextNode(name.value);
+//     anchor.appendChild(text);
+//     console.log(anchor);
+//
+//     let br = document.createElement('br');
+//     let list = document.getElementById('list');
+//
+//     list.appendChild(anchor);
+//     list.appendChild(br);
+//   },false);
+// },false);
 document.addEventListener('DOMContentLoaded',function(){
-  document.getElementById('btn').addEventListener('click',function(){
-
-    let name = document.getElementById('name');
-    let url = document.getElementById('url');
-
-    let anchor = document.createElement('a');
-    anchor.href = url.value;
-    console.log(anchor.href);
-
-    let text = document.createTextNode(name.value);
-    anchor.appendChild(text);
-    console.log(anchor);
-
-    let br = document.createElement('br');
-    let list = document.getElementById('list');
-
-    list.appendChild(anchor);
-    list.appendChild(br);
+  let elem = document.getElementById('elem');
+  elem.addEventListener('mouseover',function(){
+    this.style.backgroundColor = 'Yellow';
   },false);
-},false);
+  elem.addEventListener('mouseout',function(){
+    this.style.backgroundColor = 'red';
+  },false);
+});
