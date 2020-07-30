@@ -374,21 +374,63 @@
 //     window.alert('ボタンがクリックされました!');
 //   },false);
 // }, false);
+// document.addEventListener('DOMContentLoaded',function(){
+//   let getfavoritefood = function(name){
+//   let rusult = '';
+//   let foods = document.getElementsByName(name);
+//     for(i = 0, len = foods.length; i < len; i++){
+//       let food = foods.item(i);
+//       if(food.checked){
+//         rusult = food.value;
+//         break;
+//       }
+//     }
+//     return rusult;
+//   };
+//
+//   document.getElementById('btn').addEventListener('click',function(){
+//     window.alert(getfavoritefood('food'));
+//   },false);
+// },false);
+// window.addEventListener('DOMContentLoaded',function(){
+//   document.getElementById('file').addEventListener('change',function(e){
+//     let inputs = document.getElementById('file').files;
+//     for(let i = 0,len = inputs.length; i < len; i++){
+//       let value = inputs[i];
+//       console.log(value.name);
+//       console.log(value.type);
+//       console.log(value.lastModifiedDate);
+//     }
+//   },true);
+// });
+// window.addEventListener('DOMContentLoaded',function(){
+//   document.getElementById('file').addEventListener('change',function(e){
+//     let inputs = document.getElementById('file').files[0];
+//       let value = new FileReader;
+//       value.addEventListener('load',function(){
+//         document.getElementById('result').textContent = value.result
+//       },true);
+//       value.readAsText(inputs,'UTF-8');
+//   },true);
+// });
 document.addEventListener('DOMContentLoaded',function(){
-  let getfavoritefood = function(name){
-  let rusult = '';
-  let foods = document.getElementsByName(name);
-    for(i = 0, len = foods.length; i < len; i++){
-      let food = foods.item(i);
-      if(food.checked){
-        rusult = food.value;
-        break;
-      }
-    }
-    return rusult;
-  };
-
   document.getElementById('btn').addEventListener('click',function(){
-    window.alert(getfavoritefood('food'));
+
+    let name = document.getElementById('name');
+    let url = document.getElementById('url');
+
+    let anchor = document.createElement('a');
+    anchor.href = url.value;
+    console.log(anchor.href);
+
+    let text = document.createTextNode(name.value);
+    anchor.appendChild(text);
+    console.log(anchor);
+
+    let br = document.createElement('br');
+    let list = document.getElementById('list');
+
+    list.appendChild(anchor);
+    list.appendChild(br);
   },false);
 },false);

@@ -16,7 +16,7 @@
   </form>
   <div id="result">
   </div> -->
-  <form >
+  <!-- <form >
     <div>
       好きな食べ物は？
       <label><input type='radio' name="food" value="ラーメン" />ラーメン</label>
@@ -24,7 +24,27 @@
       <label><input type='radio' name="food" value="チャーハン" />チャーハン</label>
       <input type="button" id="btn" value="送信">
     </div>
+  </form> -->
+  <!-- <form>
+    <label for="ファイル">ファイル;</label>
+    <input type="file" name="file" id="file" multiple />
   </form>
+  <hr />
+  <pre id="result"></pre> -->
+  <form>
+    <div>
+      <label for="name">サイト名:</label><br>
+      <input type="text" name="name" id="name" size="30" />
+    </div>
+    <div>
+      <label for="url">URL:</label><br>
+      <input type="text" name="url" id="url" size="30" />
+    </div>
+    <div>
+      <input type="button" id="btn" value="追加" />
+    </div>
+  </form>
+  <div id="list"></div>
 </body>
 <script src="javascript.js">
 </script>
