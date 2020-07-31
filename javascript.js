@@ -443,3 +443,87 @@ document.addEventListener('DOMContentLoaded',function(){
     this.style.backgroundColor = 'red';
   },false);
 });
+function Triangle(){
+  var _base;
+  var _height;
+
+  Object.defineProperty(
+    this,
+    'base',
+    {
+      get:function(){
+        return _base;
+      },
+      set:function(base){
+        if(typeof base === 'number' && base > 0){
+          _base = base;
+        }
+      }
+    }
+  );
+  Object.defineProperty(
+    this,
+    'height',
+    {
+      get:function(){
+        return _height;
+      },
+      set:function(height){
+        if(typeof height === 'number' && height > 0){
+          _height = height ;
+        }
+      }
+    }
+  );
+};
+
+Triangle.prototype.getArea = function(){
+  return this.base * this.height /2 ;
+};
+
+var t = new Triangle();
+t.base = 10;
+t.height = 2;
+console.log(t.base)
+console.log(t.getArea(10,2));
+let current = new Date;
+let result = document.getElementById('result');
+result.textContent = current.toLocaleString();
+
+function showmessage(a){
+  if(arguments.length !== 1){
+    throw new Error('引数の数が間違っています:' + arguments.length);
+  }
+  console.log(a)
+}
+
+try{
+  showmessage('山田','鈴木');
+}catch(e){
+  window.alert(e.message);
+}
+function sum(){
+  let result = 0;
+  for(let i = 0, len = arguments.length; i < len; i++){
+    let tmp = arguments[i];
+    if(typeof tmp !== 'number'){
+      throw new Error('引数が数値ではありません:' + tmp);
+    }
+    result += tmp;
+  }
+  return result;
+}
+アロー関数
+let getTriangle = (base,height) => {
+  return base * height / 2 ;
+};
+
+console.log(`三角形の面積は${getTriangle(5,2)}です。`);
+let getTriangle = (base,height) =>  base * height / 2 ;
+
+console.log(`三角形の面積は${getTriangle(5,2)}です。`);
+
+let getCircle = radius => radius * radius * Math.PI;
+console.log(getCircle(3));
+
+let show = () => console.log('こんにちわ');
