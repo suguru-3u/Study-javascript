@@ -605,36 +605,57 @@
 // console.log(delete d2);
 // console.log(d2);
 
-function getMaxMin(...nums){
-  return [Math.max(...nums),Math.min(...nums)];
-}
-let [max,min] = getMaxMin(10,20,30,50);
-console.log(max);
-console.log(min);
-function a(date,f){
-  for(let key in date){
-    f(date[key],key);
-  }
-}
-let sum = 0;
-function b(value,key){
-  sum += value;
-}
-let c = [1,2,3,4];
-a(c,b);
-console.log(sum);
-function a(date,f){
-  for(let key in date){
-    f(date[key],key);
-  }
-}
-let c = [1,2,3,4];
-a(
-  c,
-  function(value,key){
-    console.log(key + ':' + value);
-  }
-);
+// function getMaxMin(...nums){
+//   return [Math.max(...nums),Math.min(...nums)];
+// }
+// let [max,min] = getMaxMin(10,20,30,50);
+// console.log(max);
+// console.log(min);
+// function a(date,f){
+//   for(let key in date){
+//     f(date[key],key);
+//   }
+// }
+// let sum = 0;
+// function b(value,key){
+//   sum += value;
+// }
+// let c = [1,2,3,4];
+// a(c,b);
+// console.log(sum);
+// function a(date,f){
+//   for(let key in date){
+//     f(date[key],key);
+//   }
+// }
+// let c = [1,2,3,4];
+// a(
+//   c,
+//   function(value,key){
+//     console.log(key + ':' + value);
+//   }
+// );
+// ５章
+// let Menber = function(firstName,lastName){
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+//   this.getName = function(){
+//     return this.firstName + '' + lastName;
+//   }
+// };
+//
+// let Name = new Menber('田中','翔');
+// console.log(Name.getName());
+// let Animal = function(){};
+//
+// Animal.p rototype = {
+//   walk : function(){
+//     console.log('トコトコ');
+//   }
+// };
+
+
+
 ５章
 let Menber = function(firstName,lastName){
   this.firstName = firstName;
@@ -653,3 +674,32 @@ Animal.p rototype = {
     console.log('トコトコ');
   }
 };
+
+let Dog = function(){
+  Animal.call(this);
+};
+Dog.prototype = new Animal();
+Dog.prototype.bark = function(){
+  console.log('ワンワン');
+};
+let a = new Dog();
+a.walk();
+a.bark();
+function Triangle(){
+  var _base;
+  var _height;
+
+  Object.defineProperty(
+    this,
+    'base',
+    {
+      get:function(){
+        return _base;
+      },
+      set:function(base){
+        if(typeof base === 'number' && base > 0){
+          _base = base;
+        }
+      }
+    }
+  );
