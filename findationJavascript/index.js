@@ -105,3 +105,22 @@ let yutuber = {
 };
 
 yutuber.list.business.yutubers[0].name;
+
+
+function isEven(num){
+    return num % 2 === 0;
+}
+
+function isEvenInculuded(numbers){
+    for(let i = 0 ; i < numbers.length ; i ++){
+        const num = numbers[i];
+        if(isEven(num)){
+            return true;
+        }
+    }
+    return false
+}
+
+const numbers = [1,5,7,9,10];
+
+console.log(isEvenInculuded(numbers));
