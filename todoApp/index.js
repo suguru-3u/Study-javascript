@@ -2,6 +2,7 @@ const addTask = document.querySelector('.add');
 const list = document.querySelector('.todos');
 const search = document.querySelector('.search input');
 
+// ローカル外レージ上の機能
 (function(){
     // 初期化処理
     // ローカルストレージに格納されている値を取得し、リストを生成する
@@ -28,6 +29,7 @@ const deleteTaskFromLocalStorage = task => {
     return;
 }
 
+// 登録する際の処理
 const createTodoList = task => {
     // HTML テンプレートを生成
     const html = `
@@ -37,8 +39,9 @@ const createTodoList = task => {
     </li>
     `;
 
+    // index.htmlに要素を追加
     list.innerHTML += html;
-
+    // ローカルストレージ上に保存
     saveTaskToLocalStorage(task, html); 
 }
 
@@ -48,6 +51,7 @@ addTask.addEventListener('submit', e => {
 
     // タスクに入力した値を空白を除外して格納
     const task = addTask.add.value.trim();
+    // 入力した値が空白じゃないかの確認
     if(task.length) {
         // Todo List の HTML を作成
         createTodoList(task);
@@ -60,7 +64,7 @@ addTask.addEventListener('submit', e => {
 list.addEventListener('click', e => {
     if(e.target.classList.contains('delete')){
         e.target.parentElement.remove();
-
+        // ローカルストレージ上のデータを削除する
         const task = e.target.parentElement.textContent.trim()
         deleteTaskFromLocalStorage(task);
     }
@@ -70,12 +74,13 @@ list.addEventListener('click', e => {
 const filterTasks = (term) => {
     Array.from(list.children)
     // フィルタ条件
+        // メソッドチェーン!!!
         .filter((todo) => !todo.textContent.toLowerCase().includes(term))
         .forEach((todo) => todo.classList.add('filtered'));
 
     Array.from(list.children)
-    .filter((todo) =>  todo.textContent.toLowerCase().includes(term))
-    .forEach((todo) => todo.classList.remove('filtered'));
+        .filter((todo) =>  todo.textContent.toLowerCase().includes(term))
+        .forEach((todo) => todo.classList.remove('filtered'));
 };
 
 search.addEventListener('keyup',() => {
