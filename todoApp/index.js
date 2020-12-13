@@ -2,6 +2,8 @@ const addTask = document.querySelector('.add');
 const list = document.querySelector('.todos');
 const search = document.querySelector('.search input');
 
+window.addEventListener("onload",getNowDate());
+
 // ローカル外レージ上の機能
 (function(){
     // 初期化処理
@@ -12,6 +14,7 @@ const search = document.querySelector('.search input');
             list.innerHTML += localStorage.getItem(key);
         }
     }
+    taskNumber();
 })();
 
 const saveTaskToLocalStorage = (task, html) => {
@@ -30,14 +33,15 @@ const deleteTaskFromLocalStorage = task => {
 }
 
 // 現在日時の取得
-const nowDate = new Date();
-const year = nowDate.getFullYear();
-const month = nowDate.getMonth()+1;
-const date = nowDate.getDate();
-const yymmdd = year + ":" + month + ":" + date;
-const currentTime = window.document.getElementById("currentTime");
-currentTime.innerHTML += yymmdd
-
+function getNowDate(){
+    const nowDate = new Date();
+    const year = nowDate.getFullYear();
+    const month = nowDate.getMonth()+1;
+    const date = nowDate.getDate();
+    const yymmdd = year + ":" + month + ":" + date;
+    const currentTime = window.document.getElementById("currentTime");
+    currentTime.innerHTML += yymmdd
+}
 
 // 登録する際の処理
 const createTodoList = task => {
@@ -67,6 +71,7 @@ addTask.addEventListener('submit', e => {
         createTodoList(task);
         // タスクに入力した文字をクリア
         addTask.reset();
+        taskNumber();
     }
 });
 
@@ -77,6 +82,7 @@ list.addEventListener('click', e => {
         // ローカルストレージ上のデータを削除する
         const task = e.target.parentElement.textContent.trim()
         deleteTaskFromLocalStorage(task);
+        taskNumber();
     }
 });
 
@@ -98,3 +104,11 @@ search.addEventListener('keyup',() => {
     const term = search.value.trim().toLowerCase();
     filterTasks(term);
 });
+
+// 登録しているタスクの量を数える
+function taskNumber(){
+    const taskCounts = list.children;
+    const taskCount = document.getElementById("taskCount");
+    taskCount.innerHTML = taskCounts.length;
+
+}
