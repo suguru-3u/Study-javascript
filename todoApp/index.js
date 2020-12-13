@@ -78,11 +78,13 @@ addTask.addEventListener('submit', e => {
 // 削除機能
 list.addEventListener('click', e => {
     if(e.target.classList.contains('delete')){
-        e.target.parentElement.remove();
-        // ローカルストレージ上のデータを削除する
-        const task = e.target.parentElement.textContent.trim()
-        deleteTaskFromLocalStorage(task);
-        taskNumber();
+        if(confirm("削除してよろしいでしょうか?")){
+            e.target.parentElement.remove();
+            // ローカルストレージ上のデータを削除する
+            const task = e.target.parentElement.textContent.trim()
+            deleteTaskFromLocalStorage(task);
+            taskNumber();
+        } 
     }
 });
 
