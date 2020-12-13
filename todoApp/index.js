@@ -29,6 +29,16 @@ const deleteTaskFromLocalStorage = task => {
     return;
 }
 
+// 現在日時の取得
+const nowDate = new Date();
+const year = nowDate.getFullYear();
+const month = nowDate.getMonth()+1;
+const date = nowDate.getDate();
+const yymmdd = year + ":" + month + ":" + date;
+const currentTime = window.document.getElementById("currentTime");
+currentTime.innerHTML += yymmdd
+
+
 // 登録する際の処理
 const createTodoList = task => {
     // HTML テンプレートを生成

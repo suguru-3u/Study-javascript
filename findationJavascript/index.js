@@ -124,3 +124,7 @@ function isEvenInculuded(numbers){
 const numbers = [1,5,7,9,10];
 
 console.log(numbers.filter(isEven));
+
+const name = "Javascript";
+console.log(`Hello ${name}`);
+
