@@ -114,3 +114,13 @@ function taskNumber(){
     taskCount.innerHTML = taskCounts.length;
 
 }
+
+
+async function getWeather(){
+    const res = await fetch("https://api.openweathermap.org/data/2.5/onecall?lat=35.681236&lon=139.767125&units=metric&lang=ja&appid={b963564bc05b57fcf66d2cd362542dfe}");
+    const users = await res.json();
+    console.log(users);
+    return users;
+}
+
+getWeather();
